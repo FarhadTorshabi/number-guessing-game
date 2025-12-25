@@ -35,3 +35,4 @@ I understand the code and continue to improve it step by step.
 
 Beginner project – improving gradually.
 
+“Next improvement: add difficulty levels (Easy / Medium / Hard)”
