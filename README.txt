@@ -26,3 +26,12 @@ It was created as part of my Python learning journey.
    ```bash
    python guess_number.py
 
+🤝 Note
+
+This project was developed while learning Python, with guidance and explanations from ChatGPT.
+I understand the code and continue to improve it step by step.
+
+📌 Status
+
+Beginner project – improving gradually.
+
