@@ -36,3 +36,10 @@ I understand the code and continue to improve it step by step.
 Beginner project – improving gradually.
 
 “Next improvement: add difficulty levels (Easy / Medium / Hard)”
+
+## Update
+This project was later improved to include:
+- Difficulty levels (easy, medium, hard)
+- Hot/cold hints
+- Best score tracking
+- Improved input validation
