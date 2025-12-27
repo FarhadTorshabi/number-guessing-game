@@ -5,33 +5,14 @@ def guess_number():
     print("Welcome to the Number Guessing Game! Type 'q' anytime to quit.\n")
     
     while True:
-        # Get range from user
-        try:
-            first_input = input("Enter the start of the range (or 'q' to quit): ")
-            if first_input.lower() == 'q':
-                break
-            first = int(first_input)
-            
-            end_input = input("Enter the end of the range (or 'q' to quit): ")
-            if end_input.lower() == 'q':
-                break
-            end = int(end_input)
-            
-        except ValueError:
-            print("Invalid input! Please enter an integer.\n")
-            continue
+        max_number, attempts = choose_difficulty()
+        secret_number = random.randint(1, max_number)
 
-        if first >= end:
-            print("Start number must be less than end number.\n")
-            continue
-
-        secret_number = random.randint(first, end)
-        attempts = 0
-        max_attempts = 5
         guess = None
-
-        while attempts < max_attempts:
-            guess_input = input(f"Guess a number between {first} and {end}: ")
+        tries = 0
+        
+        while attempts > 0:
+            guess_input = input(f"Guess a number between 1 and {max_number}: ")
             if guess_input.lower() == 'q':
                 print("Quitting the game...")
                 return
@@ -41,20 +22,20 @@ def guess_number():
                 print("Invalid input! Enter an integer.\n")
                 continue
 
-            if guess < first or guess > end:
+            if guess < 1 or guess > max_number:
                 print("Your guess is out of range. Try again.\n")
                 continue  # don’t count this attempt
 
-            attempts += 1
-
+            attempts -= 1
+            tries += 1
             if guess < secret_number:
                 print("Too low! Try again.")
             elif guess > secret_number:
                 print("Too high! Try again.")
             else:
-                print(f"🎉 Congratulations! You guessed it in {attempts} tries!\n")
-                if best_score is None or attempts < best_score:
-                    best_score = attempts
+                print(f"🎉 Congratulations! You guessed it in {tries} tries!\n")
+                if best_score is None or tries < best_score:
+                    best_score = tries
                     print(f"🏆 New best score: {best_score} attempts!\n")
                 break
 
@@ -75,6 +56,26 @@ def guess_number():
         if play_again != 'y':
             print("Thanks for playing! Goodbye 👋")
             break
+
+def choose_difficulty():
+    
+    while True:
+        difficulty = input("Please enter the difficulty level for the game (easy, medium, hard): ").lower()
+        if difficulty == "easy":
+            max_number = 10
+            attempts = 5
+            return max_number, attempts
+        elif difficulty == "medium":
+            max_number = 20
+            attempts = 4
+            return max_number, attempts
+        elif difficulty == "hard":
+            max_number = 50
+            attempts = 3
+            return max_number, attempts
+        else:
+            print("Invalid difficulty. Please choose easy, medium, or hard.\n")
+            continue
 
 # Start the game
 guess_number()
