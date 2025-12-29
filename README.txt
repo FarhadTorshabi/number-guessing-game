@@ -41,3 +41,23 @@ Make sure you have Python 3 installed.
 ```bash
 python guess_number.py
 
+🚀 Learning Notes
+
+This project was developed as part of a step-by-step Python learning plan.
+The refactored version focuses on clean code principles, not just making the game work.
+
+🤝 Note
+This project was developed while learning Python, with guidance and explanations from ChatGPT.
+All code decisions and implementations were written and understood by the author.
+
+📌 Next Steps
+
+Further refactoring
+
+Adding tests
+
+Improving game features
+
+Applying similar structure to future projects
+
+
